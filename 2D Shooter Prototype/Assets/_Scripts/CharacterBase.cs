@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
-    public int health;
-    public int baseDamage;
+    [System.Serializable]
+    public struct CharacterProperties
+    {
+        public int health;
+        public int baseDamage;
+    }
 
-
+    public CharacterProperties characterProperties;
 }
