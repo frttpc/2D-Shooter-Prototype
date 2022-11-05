@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
-    [System.Serializable]
-    public struct CharacterProperties
+    [Header("Charachter Properties")]
+    public int maxHealth;
+    protected int currentHealth;
+    public int baseDamage;
+    public int moveSpeed;
+    protected int attackDistance;
+
+    private void Start()
     {
-        public int health;
-        public int baseDamage;
+        Debug.Log(gameObject.name + " is created!");
+        currentHealth = maxHealth;
     }
 
-    public CharacterProperties characterProperties;
+    public virtual void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+    }
 }
