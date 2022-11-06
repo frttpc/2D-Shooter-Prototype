@@ -6,10 +6,10 @@ public class CharacterBase : MonoBehaviour
 {
     [Header("Charachter Properties")]
     public int maxHealth;
-    protected int currentHealth;
+    [SerializeField] protected int currentHealth;
     public int baseDamage;
     public int moveSpeed;
-    protected int attackDistance;
+    [SerializeField] protected int attackDistance;
 
     private void Start()
     {

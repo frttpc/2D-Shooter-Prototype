@@ -6,11 +6,16 @@ public class Skull : CharacterBase
 {
     public Rigidbody2D rb;
     public Transform playerPos;
-    public Animator animator;
+
+    private void Update()
+    {
+        MoveTowards();
+    }
 
     public override void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
+        base.TakeDamage(damageAmount);
+
     }
 
     public void MoveTowards()
