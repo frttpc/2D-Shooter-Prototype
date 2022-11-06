@@ -5,19 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ProjectileBase : MonoBehaviour
 {
-    public int projSpeed;
-    public int projDmg;
-    public int lifeTime;
-    public bool fullAuto;
+    [SerializeField] public int projSpeed;
+    [SerializeField] protected int projDmg;
+    [SerializeField] protected int lifeTime;
+    [SerializeField] protected bool fullAuto;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(gameObject.name + " collided with " + collision.gameObject.name);
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag != "IgnoreAll")
         {
-            DealDamage(collision.gameObject);
+            Debug.Log(gameObject.name + " collided with " + collision.gameObject.name);
+            if (collision.gameObject.tag == "Enemy")
+            {
+                DealDamage(collision.gameObject);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

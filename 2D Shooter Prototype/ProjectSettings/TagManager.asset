@@ -6,6 +6,8 @@ TagManager:
   tags:
   - IgnoreAll
   - Enemy
+  - Shootable
+  - Projectile
   layers:
   - Default
   - TransparentFX

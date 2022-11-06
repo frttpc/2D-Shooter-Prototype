@@ -5,11 +5,11 @@ using UnityEngine;
 public class CharacterBase : MonoBehaviour
 {
     [Header("Charachter Properties")]
-    public int maxHealth;
-    [SerializeField] protected int currentHealth;
-    public int baseDamage;
-    public int moveSpeed;
+    [SerializeField] protected int baseDamage;
+    [SerializeField] protected int moveSpeed;
     [SerializeField] protected int attackDistance;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int currentHealth;
 
     private void Start()
     {
@@ -20,5 +20,20 @@ public class CharacterBase : MonoBehaviour
     public virtual void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+        CheckForDeath();
+    }
+
+    private void CheckForDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            Die();
+            Debug.Log(gameObject + " has died.");
+        }
+    }
+
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
     }
 }

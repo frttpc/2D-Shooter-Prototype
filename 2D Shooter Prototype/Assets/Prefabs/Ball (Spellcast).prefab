@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4320007190771363398}
   m_Layer: 0
   m_Name: Ball (Spellcast)
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projSpeed: 30
-  projDmg: 5
+  projDmg: 15
   lifeTime: 0
   fullAuto: 0

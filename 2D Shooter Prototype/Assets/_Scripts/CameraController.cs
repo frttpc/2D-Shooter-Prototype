@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private CinemachineVirtualCamera _virtualCameraAim;
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        _virtualCameraAim.Priority = Input.GetMouseButton(1) == true ? 5 : 1;
     }
 }
