@@ -8,6 +8,7 @@ public class Aiming : MonoBehaviour
     [SerializeField] private GameObject _aim;
     [SerializeField] private Transform _cursorPosition;
     [SerializeField] private Transform _lookAtAnchor;
+    [SerializeField] private Transform _playerPos;
     [SerializeField] private int _maxCursorDistance;
     [SerializeField] [Range(.1f, 1f)] private float _anchorCoeff = 0.5f;
 
@@ -30,6 +31,6 @@ public class Aiming : MonoBehaviour
             _cursorPosition.position = _mousePosition;
         }
 
-        _lookAtAnchor.position = (_cursorPosition.position - gameObject.transform.position).normalized * _anchorCoeff;
+        _lookAtAnchor.position = (_cursorPosition.position - _playerPos.position).normalized * _anchorCoeff;
     }
 }

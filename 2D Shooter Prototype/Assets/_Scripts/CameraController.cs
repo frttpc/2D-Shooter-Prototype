@@ -5,10 +5,16 @@ using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera _virtualCameraAim;
+    public Camera main;
+    [SerializeField] private CinemachineVirtualCamera[] _virtualCameras;
 
     void LateUpdate()
     {
-        _virtualCameraAim.Priority = Input.GetMouseButton(1) == true ? 5 : 1;
+        _virtualCameras[1].Priority = Input.GetMouseButton(1) == true ? 5 : 1;
+    }
+
+    public CinemachineVirtualCamera GetCam(int camNo)
+    {
+        return camNo == 0 ? _virtualCameras[0] : _virtualCameras[1];
     }
 }
