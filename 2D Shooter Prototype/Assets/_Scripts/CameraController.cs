@@ -17,4 +17,9 @@ public class CameraController : MonoBehaviour
     {
         return camNo == 0 ? _virtualCameras[0] : _virtualCameras[1];
     }
+
+    public CinemachineBrain GetBrain()
+    {
+        return main.GetComponent<CinemachineBrain>();
+    }
 }

@@ -31,6 +31,6 @@ public class Aiming : MonoBehaviour
             _cursorPosition.position = _mousePosition;
         }
 
-        _lookAtAnchor.position = (_cursorPosition.position - _playerPos.position).normalized * _anchorCoeff;
+        _lookAtAnchor.position = _playerPos.position + (_cursorPosition.position - _playerPos.position) * _anchorCoeff;
     }
 }

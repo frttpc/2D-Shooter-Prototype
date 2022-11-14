@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3358426310992736392}
   - component: {fileID: 3358426310992736393}
   - component: {fileID: 4886401168182335901}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Ball (Spellcast)
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -135,10 +135,10 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4

@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class ShootableObjects : MonoBehaviour
+public class ObjectBase : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHealth;
-    [SerializeField] private int _currentHealth;
+    private int _currentHealth;
 
     private void Start()
     {
@@ -21,10 +20,7 @@ public class ShootableObjects : MonoBehaviour
 
     private void CheckForDestroy()
     {
-        if(_currentHealth <= 0)
-        {
+        if (_currentHealth < 0)
             Destroy(gameObject);
-        }
     }
-
 }

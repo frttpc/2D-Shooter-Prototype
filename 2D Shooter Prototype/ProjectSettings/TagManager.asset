@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Shootable
   - Projectile
+  - Campfire
+  - AudioManager
   layers:
   - Default
   - TransparentFX
@@ -16,6 +18,7 @@ TagManager:
   - Water
   - UI
   - 
+  - Player
   - 
   - 
   - 
@@ -38,8 +41,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Shootables
   - IgnoreAll
   m_SortingLayers:
   - name: Background

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterBase : MonoBehaviour
+public class CharacterBase : MonoBehaviour, IDamageable
 {
     [Header("Charachter Properties")]
     [SerializeField] protected int baseDamage;
     [SerializeField] protected int moveSpeed;
     [SerializeField] protected int attackDistance;
     [SerializeField] protected int maxHealth;
-    [SerializeField] protected int currentHealth;
+    protected int currentHealth;
 
     private void Start()
     {
-        Debug.Log(gameObject.name + " is created!");
+        Debug.Log("Character Base created: " + gameObject.name);
         currentHealth = maxHealth;
     }
 
