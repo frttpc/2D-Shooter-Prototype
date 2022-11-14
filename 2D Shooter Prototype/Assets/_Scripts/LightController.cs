@@ -10,21 +10,11 @@ public class LightController : MonoBehaviour
 
     [SerializeField] private Light2D light2D;
 
-    private void Update()
-    {
-        
-    }
-
     public void SlowlyDecreaseLightFallout()
     {
         if (light2D.intensity > 5)
         {
             light2D.intensity -= Time.deltaTime * 0.1f;
         }
-    }
-
-    public void IncreaseLightFallout()
-    {
-
     }
 }

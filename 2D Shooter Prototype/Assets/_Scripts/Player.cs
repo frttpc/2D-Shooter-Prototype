@@ -13,19 +13,17 @@ public class Player : CharacterBase
     [Header("Player")]
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
+    [SerializeField] private CameraController CamCo;
     private static Vector2 _movement;
 
     private bool _mouse2;
-
-    [SerializeField] private CameraController CamCo;
-
     private Collider2D[] colliders;
 
     public static Player instance;
 
     void Awake()
     {
-        if (instance != null)
+        if (instance == null)
             instance = this;
         else
             Debug.Log("Already a Player instance!");
