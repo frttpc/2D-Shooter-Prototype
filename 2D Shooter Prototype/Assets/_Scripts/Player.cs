@@ -87,7 +87,7 @@ public class Player : CharacterBase
         {
             foreach (Collider2D collider2d in colliders)
             {
-                if (collider2d.gameObject.tag == "Enemy")
+                if (collider2d.gameObject.CompareTag("Enemy"))
                 {
                     float tempDistSqr = (collider2d.transform.position - transform.position).sqrMagnitude;
 
@@ -132,7 +132,7 @@ public class Player : CharacterBase
         else
             activeCam = CamCo.GetCam(0).VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
 
-        activeCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = Mathf.InverseLerp(100, 1, enemyDistSqr) * 5;
+        activeCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = Mathf.InverseLerp(100, 1, enemyDistSqr) * 3;
     }
 
     public void DecreaseMana(int amount)
