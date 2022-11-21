@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 5
   moveSpeed: 2
-  attackDistance: 0
+  attackDistance: 5
   maxHealth: 50
 --- !u!212 &8444666477423727770
 SpriteRenderer:

@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Look : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float _maxValue;
+    private float _currentValue;
+
+    private void Start()
     {
-        
+        _maxValue = Player.Instance.GetLook();
+        _currentValue = _maxValue;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -19,12 +19,12 @@ public class Player : CharacterBase
     private bool _mouse2;
     private Collider2D[] colliders;
 
-    public static Player instance;
+    public static Player Instance;
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Debug.Log("Already a Player instance!");
     }
@@ -137,34 +137,44 @@ public class Player : CharacterBase
 
     public void DecreaseMana(int amount)
     {
-        if(instance._currentMana > 0)
+        if(_currentMana > 0)
         {
-            if (instance._currentMana - amount < 0)
-                instance._currentMana = 0;
+            if (_currentMana - amount < 0)
+                _currentMana = 0;
             else
-                instance._currentMana -= amount;
+                _currentMana -= amount;
         }
     }
 
     public void IncreaseMana(int amount)
     {
-        if (instance._currentMana < instance._maxMana)
+        if (_currentMana < _maxMana)
         {
-            if (instance._currentMana + amount > instance._maxMana)
-                instance._currentMana = instance._maxMana;
+            if (_currentMana + amount > _maxMana)
+                _currentMana = _maxMana;
             else
-                instance._currentMana += amount;
+                _currentMana += amount;
         }
     }
 
     public void DecreaseLook(float amount)
     {
-        if (instance._currentLook > 0)
+        if (_currentLook > 0)
         {
-            if (instance._currentLook - amount < 0)
-                instance._currentLook = Mathf.Lerp(instance._currentLook, 0, 1);
+            if (_currentLook - amount < 0)
+                _currentLook = Mathf.Lerp(_currentLook, 0, 1);
             else
-                instance._currentLook = Mathf.Lerp(instance._currentLook, instance._currentLook - amount, 1);
+                _currentLook = Mathf.Lerp(_currentLook, _currentLook - amount, 1);
         }
+    }
+
+    public int GetHealth()
+    {
+        return maxHealth;
+    }
+
+    public float GetLook()
+    {
+        return _maxLook;
     }
 }

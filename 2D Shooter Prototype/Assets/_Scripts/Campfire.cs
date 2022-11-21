@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class Campfire : MonoBehaviour
 {
-    float regenRate = 0.5f;
+    float regenRate = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,8 +17,8 @@ public class Campfire : MonoBehaviour
     {
         if (collision.tag == "Player" && regenRate - Time.deltaTime <= 0)
         {
-            Player.instance.IncreaseMana(5);
-            regenRate = 0.5f;
+            Player.Instance.IncreaseMana(5);
+            regenRate = 1f;
         }
         regenRate -= Time.deltaTime;
     }

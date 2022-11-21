@@ -21,8 +21,8 @@ public class Shooting : MonoBehaviour
         Vector2 lookDirection = _mousePosition - (Vector2)gameObject.transform.position;
 
         if (Input.GetMouseButtonDown(0))
-            if(Player.instance._currentMana > 0)
-                Shoot(_spellcastPrefab, lookDirection, _firePoint.position, Player.instance.GetMovement());
+            if(Player.Instance._currentMana > 0)
+                Shoot(_spellcastPrefab, lookDirection, _firePoint.position, Player.Instance.GetMovement());
     }
 
     public void Shoot(GameObject projectile, Vector2 lookDir, Vector2 firePoint, Vector2 movement)
@@ -31,6 +31,6 @@ public class Shooting : MonoBehaviour
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
         bulletRB.AddForce((movement + lookDir).normalized * projectileBase.projSpeed, ForceMode2D.Impulse);
 
-        Player.instance.DecreaseMana(projectileBase.projCost);
+        Player.Instance.DecreaseMana(projectileBase.projCost);
     }
 }
