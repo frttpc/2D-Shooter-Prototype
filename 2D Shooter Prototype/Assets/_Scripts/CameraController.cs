@@ -10,7 +10,17 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        _virtualCameras[1].Priority = Input.GetMouseButton(1) == true ? 5 : 1;
+        if (Input.GetMouseButton(1))
+        {
+            _virtualCameras[1].Priority = 5;
+            LookMeter.Instance.Decrease(0.2f);
+        }
+        else
+        {
+            _virtualCameras[1].Priority = 1;
+            LookMeter.Instance.Increase();
+
+        }
     }
 
     public CinemachineVirtualCamera GetCam(int camNo)

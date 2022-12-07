@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class Player : CharacterBase
+public class Player : CharacterBase, IDamageable
 {
     [SerializeField] private int _maxMana;
-    [field:SerializeField] public int _currentMana { get; private set; }
-    [SerializeField] private float _maxLook;
+    [field:SerializeField] public float _currentMana { get; private set; }
+    [SerializeField] private int _maxLook;
     [field:SerializeField] public float _currentLook { get; private set; }
+    private bool isReachable = true;
 
     [Header("Player")]
     [SerializeField] private Rigidbody2D _rb;
@@ -29,8 +30,9 @@ public class Player : CharacterBase
             Debug.Log("Already a Player instance!");
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         _currentMana = _maxMana;
         _currentLook = _maxLook;
     }
@@ -64,7 +66,7 @@ public class Player : CharacterBase
 
     private void CheckForEnemy()
     {
-        GameObject closestEnemy = FindClosestEnemyOverlapCircle();
+        GameObject closestEnemy = FindClosestEnemyOverlapCircleSqr();
 
         if (closestEnemy == null)
         {
@@ -76,7 +78,7 @@ public class Player : CharacterBase
         }
     }
 
-    private GameObject FindClosestEnemyOverlapCircle()
+    private GameObject FindClosestEnemyOverlapCircleSqr()
     {
         colliders = Physics2D.OverlapCircleAll(transform.position, 10);
 
@@ -114,13 +116,6 @@ public class Player : CharacterBase
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
     }
 
-    public override void TakeDamage(int damageAmount)
-    {
-        base.TakeDamage(damageAmount);
-
-        //Animate damage effect
-    }
-
     private void ShakeCamera(float enemyDistSqr)
     {
         CinemachineVirtualCamera activeCam;
@@ -146,7 +141,7 @@ public class Player : CharacterBase
         }
     }
 
-    public void IncreaseMana(int amount)
+    public void IncreaseMana(float amount)
     {
         if (_currentMana < _maxMana)
         {
@@ -177,4 +172,23 @@ public class Player : CharacterBase
     {
         return _maxLook;
     }
+
+    public int GetMana()
+    {
+        return _maxMana;
+    }
+
+    public override void TakeDamage(int damageAmount)
+    {
+        HealthMeter.Instance.Decrease(damageAmount);
+        base.TakeDamage(damageAmount);
+
+        //Animate damage effect
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+    }
+
 }

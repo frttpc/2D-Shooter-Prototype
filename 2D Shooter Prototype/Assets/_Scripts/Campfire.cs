@@ -3,11 +3,10 @@ using UnityEngine.Rendering.Universal;
 
 public class Campfire : MonoBehaviour
 {
-    float regenRate = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             GetComponent<Light2D>().enabled = true;
         }
@@ -15,11 +14,10 @@ public class Campfire : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && regenRate - Time.deltaTime <= 0)
+        if (collision.CompareTag("Player"))
         {
-            Player.Instance.IncreaseMana(5);
-            regenRate = 1f;
+            Player.Instance.IncreaseMana(0.2f);
+            ManaMeter.Instance.Increase(0.2f);
         }
-        regenRate -= Time.deltaTime;
     }
 }

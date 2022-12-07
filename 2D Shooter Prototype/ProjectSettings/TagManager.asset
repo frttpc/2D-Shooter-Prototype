@@ -39,8 +39,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Projectile
+  - Campfires
   - Shootables
   - IgnoreAll
   m_SortingLayers:

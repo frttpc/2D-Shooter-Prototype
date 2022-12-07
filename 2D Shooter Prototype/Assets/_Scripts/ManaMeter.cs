@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LookMeter : MonoBehaviour
+public class ManaMeter : MonoBehaviour
 {
     private Slider slider;
     [SerializeField] private float increaseRate;
 
-    public static LookMeter Instance;
+    public static ManaMeter Instance;
 
     private void Start()
     {
@@ -14,11 +14,11 @@ public class LookMeter : MonoBehaviour
 
         slider = GetComponent<Slider>();
 
-        slider.maxValue = Player.Instance.GetLook();
+        slider.maxValue = Player.Instance.GetMana();
         slider.value = slider.maxValue;
     }
 
-    public void Decrease(float amount)
+    public void Decrease(int amount)
     {
         if (slider.value - amount >= 0)
             slider.value -= amount;
@@ -29,5 +29,14 @@ public class LookMeter : MonoBehaviour
     public void Increase()
     {
         slider.value += increaseRate;
+        if (slider.value > slider.maxValue)
+            slider.value = slider.maxValue;
+    }
+
+    public void Increase(float amount)
+    {
+        slider.value += amount;
+        if (slider.value > slider.maxValue)
+            slider.value = slider.maxValue;
     }
 }

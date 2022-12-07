@@ -9,11 +9,10 @@ public class CharacterBase : MonoBehaviour, IDamageable
     [SerializeField] protected int moveSpeed;
     [SerializeField] protected int attackDistance;
     [SerializeField] protected int maxHealth;
-    protected int currentHealth;
+    [SerializeField] protected int currentHealth;
 
-    private void Start()
+    protected virtual void Start()
     {
-        Debug.Log("Character Base created: " + gameObject.name);
         currentHealth = maxHealth;
     }
 
@@ -28,7 +27,6 @@ public class CharacterBase : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             Die();
-            Debug.Log(gameObject + " has died.");
         }
     }
 

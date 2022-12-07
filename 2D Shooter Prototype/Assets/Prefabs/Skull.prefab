@@ -135,6 +135,8 @@ MonoBehaviour:
   moveSpeed: 2
   attackDistance: 5
   maxHealth: 50
+  currentHealth: 0
+  knockbackValue: 2
 --- !u!212 &8444666477423727770
 SpriteRenderer:
   m_ObjectHideFlags: 0

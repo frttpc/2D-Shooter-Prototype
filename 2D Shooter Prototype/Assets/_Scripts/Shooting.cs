@@ -32,5 +32,6 @@ public class Shooting : MonoBehaviour
         bulletRB.AddForce((movement + lookDir).normalized * projectileBase.projSpeed, ForceMode2D.Impulse);
 
         Player.Instance.DecreaseMana(projectileBase.projCost);
+        ManaMeter.Instance.Decrease(projectileBase.projCost);
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3358426310992736392}
   - component: {fileID: 3358426310992736393}
   - component: {fileID: 4886401168182335901}
-  m_Layer: 30
+  m_Layer: 28
   m_Name: Ball (Spellcast)
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721d5a39296272e43b56e485502db475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projSpeed: 30
+  <projSpeed>k__BackingField: 20
+  <projCost>k__BackingField: 5
   projDmg: 10
   lifeTime: 0
   fullAuto: 0

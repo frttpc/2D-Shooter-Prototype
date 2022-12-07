@@ -5,17 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ProjectileBase : MonoBehaviour
 {
-    [SerializeField] public int projSpeed { get; private set; }
-    [SerializeField] public int projCost { get; private set; }
+    [field:SerializeField] public int projSpeed { get; private set; }
+    [field:SerializeField] public int projCost { get; private set; }
     [SerializeField] protected int projDmg;
     [SerializeField] protected int lifeTime;
     [SerializeField] protected bool fullAuto;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(name + " collided with " + collision.gameObject.name);
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-        if (damageable != null)
+
+        if (damageable != null && !collision.gameObject.CompareTag("Player"))
         {
             Damage(damageable);
         }
@@ -24,10 +24,9 @@ public class ProjectileBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(name + " triggered " + collision.name);
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-        Debug.Log("isDamageable?: " + damageable);
-        if (damageable != null)
+
+        if (damageable != null && !collision.CompareTag("Player"))
         {
             Damage(damageable);
         }
