@@ -8,16 +8,19 @@ public class Campfire : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("TriggerEnter");
             GetComponent<Light2D>().enabled = true;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("TriggerStay");
             Player.Instance.IncreaseMana(0.2f);
             ManaMeter.Instance.Increase(0.2f);
         }
     }
+
 }
